@@ -1,0 +1,2 @@
+# plotly-resampler benchmarks
+
