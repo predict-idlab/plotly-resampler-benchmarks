@@ -12,18 +12,20 @@ This repository withholds the [benchmark results](reports/benchmark_fig.png) and
 
 ## Flow
 
-The benchmark process follows these steps for each feature-extraction configuration:
+The benchmark process follows these steps for each visualization-configuration:
 
-1. The corresponding feature-extraction Python script is called. This is done 20 times to average out the memory usage and create upper memory bounds. Remark that by (re)calling the script sequentially, no caching or memory is shared among the separate script-executions.
-2. In this script:
-   1. Construct the synthetic as a [pd.DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
+1. Each toolkit-visualization configuration script is called 10 times to average out the memory usage and runtime. Remark that by re-calling the script in separate runs, no caching or memory is shared among executions.
+2. Script execution:
+   1. Construct the synthetic visualization data
    2. [VizTracer](https://github.com/gaogaotiantian/viztracer) starts logging
-   3. Construct the graph
-   4. Render the graph(using Selenium and wait till everything is shown) 
+   3. Construct the visualization according to the configuration
+   4. Wait till the graph is rendered in a selenium browser.
    5. VizTracer stops logging
    6. Write the VizTracer results to a JSON-file
 
-The existing [benchmark JSONS](code/benchmark_jsons/) were collected on a desktop with an `TODO` CPU and `TODO` RAM, with *Arch Linux* as operating system. Other running processes were limited to a minimum.
+The existing [benchmark JSONs](code/benchmark_jsons/) were collected on a desktop with an *AMD Ryzen 5 2600x @3.8Ghz* CPU and *48GB* RAM, with *Arch Linux* as operating system. Other running processes were limited to a minimum.
+
+> more information about these outcomes can be found in the [**reports**](reports/README.md) readme.
 
 ## Instructions
 
