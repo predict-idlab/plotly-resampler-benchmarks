@@ -18,11 +18,14 @@ For each toolkit-approach a distinct color and style is applied.
 
 **interpretation**:
 > The first row represents the total time to construct and render the visualization.
-> The slope of all approaches seems to rise with the increasing number of data points per trace. 
-> Remark that `HoloViews`-based approaches scale exponentially in terms of the number of visualized traces, rendering them unsuitable for large multivariate visualizations (*more clear in the second visualization*). 
-> When dealing with more than 10,000,000 samples per series and more than 10 modalities, `Plotly-Resampler` clearly emerges as the only viable toolkit.
-> The second row indicates how the memory usage of both `Plotly-Resampler` and `HoloViews LTTB` scales better. 
-> These two toolkit-approaches manage to use <700 MB RAM for even the largest configuration (right column), whereas `Matplotlib` and `HoloViews rasterize` exceed 10 GB.
+> * The slope of all approaches seems to rise with the increasing number of data points per trace. 
+> * `HoloViews`-based approaches scale exponentially in terms of the number of visualized traces, rendering them unsuitable for large multivariate visualizations (*more clear in the [second visualization](#scaling-to-large-multivariate-data)*).
+> * When dealing with more than 10,000,000 samples per series and more than 10 modalities, `Plotly-Resampler` clearly emerges as the only viable toolkit.
+>
+> The second row indicates how the peak memory usage.
+> * It is clear that `Plotly-Resampler` and `HoloViews LTTB` scale better.
+> These two toolkit-approaches manage to use <700 MB RAM for even the largest configuration (right column).
+> * `Matplotlib` and `HoloViews rasterize` exceed 10 GB.
 
 ---
 
@@ -34,8 +37,10 @@ For each toolkit-approach a distinct color and style is applied.
 * In contrast with the figure above, up to 200 traces are displayed on the xaxis.
 * During benchmarking whe stopped scaling to larger traces when graph construction time exceeed 120 seconds.
 
-![](benchmark_fig_multivariate.png)
+![](benchmark_fig_high_nb_traces.png)
 
 **interpretation**:
-* As shown in the 
+> * As also shown in the [paper figure](#paper-figure), **`HoloViews`-based approaches scale exponentially in duration** with respect to the number of traces.
+> * `Plotly-Resampler` is the only tool able to visualize the most challenging configuration (200 traces, 50M datapoints per trace) under 120 seconds. More specifically, it needs 60 seconds to do so.
+
 
