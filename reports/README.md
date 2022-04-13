@@ -6,12 +6,14 @@ More information regarding benchmarking process [here](../README.md#flow).
 
 ## Paper figure
 
-The first row displays the average duration of constructing and rendering the graph.
-The second row indicates the peak RAM usage.
-The columns indicate the data size per signal, thus showing a trend when scaling to larger datasets.
-For each toolkit-approach a distinct color and style is applied.
-`HoloViews LTTB` uses *Plotly-Resampler*'s LTTB aggregation functionality, whereas
-`HoloViews rasterize` uses the built-in Datashader-rasterize function to enable dynamic aggregation.
+**Generic figure description**:
+* The first row displays the average duration of constructing and rendering the graph.
+* The second row indicates the peak RAM usage.
+* The columns indicate the data size per signal, thus showing a trend when scaling to larger datasets.
+* For each toolkit-approach a distinct color and style is applied.
+> **note**: 
+> * `HoloViews LTTB` uses *Plotly-Resampler*'s [LTTB](https://github.com/predict-idlab/plotly-resampler/blob/1b4fc6f6aa1b0e65c166a1f39e67c7ba3b2b4cf7/plotly_resampler/aggregation/aggregators.py#L21) aggregation functionality
+> * `HoloViews rasterize` uses the built-in Datashader-[rasterize](https://holoviews.org/user_guide/Large_Data.html) function to enable dynamic aggregation.
 
 ![](benchmark_fig.png)
 
