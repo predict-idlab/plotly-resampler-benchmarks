@@ -1,13 +1,14 @@
-# Benchmark results for a line-graph visualization task.
+# Benchmark results for a line-graph visualization task
 
-More information regarding benchmarking process [here](../README.md#flow).
+More information regarding benchmarking process [**here**](../README.md#flow).
 
-10 runs for each configuration -> shaded graph area depicts a 95% confidence interval..
+For each toolkit-approach configuration, 10 runs are performed. These independent runs are then averaged and a 95\% confidence interval is displayed with a shaded area. 
+For each toolkit-approach configuration datapoint, very little variation was observed, resulting in the negligibly small shaded area.
 
 ## Paper figure
 
 **Generic figure description**:
-* The first row displays the average duration of constructing and rendering the graph.
+* The first row displays the average combined duration of constructing and rendering the graph.
 * The second row indicates the peak RAM usage.
 * The columns indicate the data size per signal, thus showing a trend when scaling to larger datasets.
 * For each toolkit-approach a distinct color and style is applied.
