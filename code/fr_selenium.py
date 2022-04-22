@@ -26,10 +26,13 @@ class FigureResamplerGUITests:
         self.driver: Union[webdriver.Firefox, webdriver.Chrome] = driver
         self.on_page = False
 
-    def go_to_page(self):
+    def go_to_page(self, page: str = None):
         """Navigate to FigureResampler page."""
         time.sleep(1)
-        self.driver.get("http://localhost:{}".format(self.port))
+        if page is None:
+            self.driver.get("http://localhost:{}".format(self.port))
+        else:
+            self.driver.get(page)
         self.on_page = True
 
     def wait_element(self, class_name, wait_time_s = 3):
