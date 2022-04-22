@@ -5,7 +5,7 @@ from pathlib import Path
 import json
 import argparse
 
-n_max = 10_000_000
+n_max = 100_000_000
 
 
 def get_data() -> pd.Series:
