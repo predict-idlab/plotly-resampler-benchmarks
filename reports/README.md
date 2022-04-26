@@ -3,7 +3,18 @@
 More information regarding benchmarking process [**here**](../README.md#flow).
 
 For each toolkit-approach configuration, 10 runs are performed. These independent runs are then averaged and a 95\% confidence interval is displayed with a shaded area. 
-For each toolkit-approach configuration datapoint, very little variation was observed, resulting in the negligibly small shaded area.
+For each toolkit-approach configuration datapoint (except for the `Plotly` configuration w.r.t. duration), very little variation was observed, resulting in the negligibly small shaded area.
+
+**Package versions**:
+The exact versions of the benchmarked packages can be found in [this poetry.lock commit](https://github.com/predict-idlab/plotly-resampler-benchmarks/blob/2c8ce559e1c2403e2e510733051c01bfea3ef86e/poetry.lock).
+
+| **tool**         | **version** |
+|------------------|-------------|
+| Bokeh            | 2.4.2       |
+| Plotly           | 5.6.0       |
+| Matplotlib       | 3.5.1       |
+| HoloViews        | 1.14.8      |
+| Plotly-Resampler | 0.3.0       |
 
 ## Paper figure
 
@@ -12,6 +23,9 @@ For each toolkit-approach configuration datapoint, very little variation was obs
 * The second row indicates the peak RAM usage.
 * The columns indicate the data size per signal, thus showing a trend when scaling to larger datasets.
 * For each toolkit-approach a distinct color and style is applied.
+
+
+
 > **note**: 
 > * `HoloViews LTTB` uses *Plotly-Resampler*'s [LTTB](https://github.com/predict-idlab/plotly-resampler/blob/1b4fc6f6aa1b0e65c166a1f39e67c7ba3b2b4cf7/plotly_resampler/aggregation/aggregators.py#L21) aggregation functionality
 > * `HoloViews rasterize` uses the built-in Datashader-[rasterize](https://holoviews.org/user_guide/Large_Data.html) function to enable dynamic aggregation.
