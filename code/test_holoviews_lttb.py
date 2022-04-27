@@ -4,7 +4,7 @@ import os
 import holoviews as hv
 import numpy as np
 import panel as pn
-from plotly_resampler.downsamplers import LTTB
+from plotly_resampler.aggregation import LTTB
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from viztracer import VizTracer
@@ -58,7 +58,7 @@ hv.extension('bokeh')
 with VizTracer(
         log_gc=False,
         log_async=True,
-        output_file=f"{args.save_dir}/holoviews_LTTB__{args.index}__nb_traces={args.nb_traces}__n={args.n}__n_out={args.n_out}__headless={args.headless}.json",
+        output_file=f"{args.save_dir}/holoviews_LTTB_v2__{args.index}__nb_traces={args.nb_traces}__n={args.n}__n_out={args.n_out}__headless={args.headless}.json",
         max_stack_depth=0,
         plugins=["vizplugins.memory_usage"],
 ) as viz:
@@ -71,9 +71,10 @@ with VizTracer(
             s_ = s
         else:
             s_ = s[int(x_range[0]): int(x_range[1])]
-        return hv.Curve(
-            lttb.downsample(s_, n_out=args.n_out).reset_index(), "timestamp"
-        )
+
+        s_ = lttb.aggregate(s_, n_out=args.n_out)
+        s_.index.name = 'timestamp'
+        return hv.Curve(s_.reset_index(), "timestamp")
 
 
     # Graph construction
@@ -91,7 +92,7 @@ with VizTracer(
     server = pn.serve(layout, show=False, port=args.port, threaded=True)
 
     fr.go_to_page()
-    fr.wait_element("bk-tool-icon-wheel-zoom", wait_time_s=600)
+    fr.wait_element("bk-tool-icon-wheel-zoom", wait_time_s=120)
     viz.add_variable('event', "visualization shown")
 
 del fr
