@@ -1,11 +1,11 @@
-# plotly-resampler benchmarks
+# Plotly-Resampler benchmarks
 
-## <p align="center"> <a href="https://predict-idlab.github.io/plotly-resampler/"><img alt="tsflex" src="https://raw.githubusercontent.com/predict-idlab/plotly-resampler/main/docs/sphinx/_static/logo.png" height="100"></a></p>
+## <p align="center"> <a href="https://predict-idlab.github.io/plotly-resampler/"><img alt="Plotly-Resampler" src="https://raw.githubusercontent.com/predict-idlab/plotly-resampler/main/mkdocs/static/logo.png" height="100"></a></p>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?color=black)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?)](http://makeapullrequest.com) 
 
-This repository withholds the [benchmark results](reports/benchmark_fig.png) and visualization code of the `plotly-resampler` paper and [toolkit](https://github.com/predict-idlab/plotly-resampler).
+This repository withholds the [benchmark results](reports/benchmark_fig.png) and visualization code of the `plotly_resampler` paper and [toolkit](https://github.com/predict-idlab/plotly-resampler).
 
 ![bencmark_result](reports/benchmark_fig.png)
 
